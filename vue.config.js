@@ -3,8 +3,11 @@ const path = require("path");
 
 module.exports = {
     pwa: {
+        name: "Sync-tab",
         workboxPluginMode: "InjectManifest",
-        name: "Sync-tab"
+        workboxOptions: {
+            swSrc: "src/service-worker.js"
+        }
     },
 
     pluginOptions: {
