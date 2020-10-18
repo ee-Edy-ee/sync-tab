@@ -3,7 +3,7 @@
 
 import "./style.scss";
 
-import { consoleWarn } from "../../util/console";
+import { consoleWarn } from "@/util/console";
 import { keyCodes } from "@/util/helpers";
 import { VNode } from "vue";
 import { nextTick } from "vue";

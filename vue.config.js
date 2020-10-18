@@ -17,8 +17,7 @@ module.exports = {
                 path.resolve(__dirname, "./src/styles/setup/_functions.scss"),
                 path.resolve(__dirname, "./src/styles/setup/_variables.scss"),
                 path.resolve(__dirname, "./src/styles/setup/_mixins.scss"),
-                path.resolve(__dirname, "./src/styles/setup/_print.scss"),
-                path.resolve(__dirname, "./src/styles/setup/_rfs.scss"),
+                path.resolve(__dirname, "./src/styles/setup/_helpers.scss"),
                 path.resolve(__dirname, "./src/styles/setup/_utilities.scss")
             ]
         }

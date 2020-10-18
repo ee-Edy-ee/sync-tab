@@ -1,19 +1,23 @@
 /*!
- * Bootstrap v4.5.2 (https://getbootstrap.com/)
+ * Bootstrap v5.0.0-alpha2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
-// @import "setup/functions";
-// @import "setup/variables";
-// @import "setup/mixins";
+// scss-docs-start import-stack
+// Configuration
+@import "setup/functions";
+@import "setup/variables";
+@import "setup/mixins";
+@import "setup/utilities";
 
-@import "setup/root";
-@import "components/reboot";
-@import "components/type";
+// Layout & components
+@import "basic/root";
+@import "basic/reboot";
+@import "basic/type";
 @import "components/images";
-@import "components/code";
+@import "components/containers";
 @import "components/grid";
 @import "components/tables";
 @import "components/forms";
@@ -21,18 +25,14 @@
 @import "components/transitions";
 @import "components/dropdown";
 @import "components/button-group";
-@import "components/input-group";
-@import "components/custom-forms";
 @import "components/nav";
 @import "components/navbar";
 @import "components/card";
 @import "components/breadcrumb";
 @import "components/pagination";
 @import "components/badge";
-@import "components/jumbotron";
 @import "components/alert";
 @import "components/progress";
-@import "components/media";
 @import "components/list-group";
 @import "components/close";
 @import "components/toasts";
@@ -42,5 +42,9 @@
 @import "components/carousel";
 @import "components/spinners";
 
-// @import "setup/utilities";
-// @import "setup/print";
+// Helpers
+@import "setup/helpers";
+
+// Utilities
+@import "utilities/api";
+// scss-docs-end import-stack
