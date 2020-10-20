@@ -9,6 +9,12 @@ const routes: Array<RouteRecordRaw> = [
         meta: { layout: general }
     },
     {
+        path: "/login",
+        name: "Login",
+        component: () => import(/* webpackChunkName: "login" */ "../views/Login.vue"),
+        meta: { layout: general }
+    },
+    {
         path: "/about",
         name: "About",
         component: () => import(/* webpackChunkName: "about" */ "../views/About.vue"),

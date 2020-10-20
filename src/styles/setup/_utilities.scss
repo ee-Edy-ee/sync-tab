@@ -386,6 +386,13 @@ $utilities: map-merge(
       class: pl,
       values: $spacers
     ),
+    // flex gap utilities
+    "gap": (
+      responsive: true,
+      property: gap,
+      class: gap,
+      values: $spacers
+    ),
     // Text
     "font-weight": (
       property: font-weight,

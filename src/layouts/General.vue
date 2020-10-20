@@ -9,16 +9,13 @@
                 <div class="collapse navbar-collapse" id="navbarExample01">
                     <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                            <router-link class="nav-link" to="/">Home</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                            <router-link class="nav-link" to="/about">About</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <router-link class="nav-link" to="/login">Login</router-link>
                         </li>
                     </ul>
                 </div>
@@ -28,8 +25,6 @@
 
         <!-- Jumbotron -->
         <div class="p-5 text-center bg-light">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
             <slot />
         </div>
         <!-- Jumbotron -->
@@ -41,3 +36,7 @@ export default {
     name: "general"
 };
 </script>
+
+<style lang="scss">
+@import "~@/styles/global.scss";
+</style>
