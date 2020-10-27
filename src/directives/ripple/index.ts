@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import "./style.scss";
+import "./_style.scss";
 
 import { consoleWarn } from "@/util/console";
 import { keyCodes } from "@/util/helpers";

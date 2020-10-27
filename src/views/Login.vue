@@ -4,21 +4,11 @@
             <h2 class="text-center">Sign in</h2>
             <div class="form-group mb-2">
                 <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <account />
-                        </span>
-                    </div>
                     <input type="text" class="form-control" name="username" placeholder="Username" required="required" />
                 </div>
             </div>
             <div class="form-group mb-2">
                 <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <lock />
-                        </span>
-                    </div>
                     <input type="password" class="form-control" name="password" placeholder="Password" required="required" />
                 </div>
             </div>
@@ -32,7 +22,7 @@
             <div class="or-seperator"><i>or</i></div>
             <p class="text-center">Login with your social media account</p>
             <div class="text-center d-flex align-self-center justify-content-center gap-2">
-                <a href="#" class="btn btn-dark" v-ripple @click="loginWithGitHub"><github />&nbsp;Github</a>
+                <a href="#" class="btn btn-black" v-ripple @click="loginWithGitHub"><github />&nbsp;Github</a>
                 <a href="#" class="btn btn-danger" v-ripple @click="loginWithGoogle"><google />&nbsp;Google</a>
             </div>
         </form>
@@ -41,15 +31,13 @@
 </template>
 
 <script>
-import { Google, Github, Account, Lock } from "mdue";
+import { Google, Github } from "mdue";
 import { auth, googleAuthProvider, githubAuthProvider } from "@/util/firebase";
 
 export default {
     components: {
         Google,
-        Github,
-        Account,
-        Lock
+        Github
     },
     setup() {
         function loginWithGoogle() {

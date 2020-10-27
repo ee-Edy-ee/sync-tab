@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
     pwa: {
-        name: "Sync-tab",
+        name: "Sync-TAB",
         workboxPluginMode: "InjectManifest",
         workboxOptions: {
             swSrc: "src/service-worker.js"
@@ -20,6 +20,16 @@ module.exports = {
                 path.resolve(__dirname, "./src/styles/setup/_helpers.scss"),
                 path.resolve(__dirname, "./src/styles/setup/_utilities.scss")
             ]
+        }
+    },
+
+    pages: {
+        index: {
+            entry: "src/main.ts",
+            template: "public/index.html",
+            filename: "index.html",
+            title: "Sync TAB",
+            chunks: ["chunk-vendors", "chunk-common", "index"]
         }
     }
 

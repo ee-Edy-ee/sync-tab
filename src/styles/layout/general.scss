@@ -1,0 +1,18 @@
+html {
+    height: 100vh;
+    min-height: 100%;
+
+    body {
+        height: inherit;
+        min-height: inherit;
+        #app {
+            height: inherit;
+            min-height: inherit;
+            .app-wrapper {
+                background-color: $dark;
+                height: inherit;
+                min-height: inherit;
+            }
+        }
+    }
+}

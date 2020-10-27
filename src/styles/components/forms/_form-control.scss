@@ -5,7 +5,7 @@
 .form-control {
   display: block;
   width: 100%;
-  min-height: $input-height;
+//   min-height: $input-height;
   padding: $input-padding-y $input-padding-x;
   font-family: $input-font-family;
   @include font-size($input-font-size);
@@ -33,7 +33,9 @@
       @include box-shadow($input-box-shadow, $input-focus-box-shadow);
     } @else {
       // Avoid using mixin so we can pass custom focus shadow properly
-      box-shadow: $input-focus-box-shadow;
+      @if $enable-input-shadows {
+          box-shadow: $input-focus-box-shadow;
+      }
     }
   }
 
