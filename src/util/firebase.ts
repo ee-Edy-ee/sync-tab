@@ -23,7 +23,8 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 const githubAuthProvider = new firebase.auth.GithubAuthProvider();
 
 // collection references
-// const usersCollection = db.collection("users");
+const usersCollection = db.collection("users");
+const linksCollection = db.collection("links");
 
 // export utils/refs
-export { googleAuthProvider, githubAuthProvider, db, auth };
+export { googleAuthProvider, githubAuthProvider, db, auth, usersCollection, linksCollection };
