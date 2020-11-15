@@ -1,40 +1,51 @@
 <template>
-    <a :href="url">
-        <div class="card">
-            <div class="card-header">
-                <div class="card-title">{{ name }}</div>
+    <div :class="{ 'web-link col-12 col-md-6 col-lg-4 col-xl-3': true, 'is-active': link.active }">
+        <figure class="card-container">
+            <div class="multi-button">
+                <a v-ripple><heart /></a>
+                <a v-ripple><pencil /></a>
+                <a v-ripple><trash-can /></a>
+                <a v-ripple><share /></a>
             </div>
-            <div class="card-body">
-                <img :src="icon" alt="logo" style="height: 50px;" />
-            </div>
-        </div>
-    </a>
+            <a href="#" v-ripple @click="event => onClick(event)" class="settings-button text-info"><cog /></a>
+            <a :href="link.url" v-ripple class="card-link text-dark">
+                <div class="overlay" :style="{ 'background-color': link.color }"></div>
+                <div class="figcaption">
+                    <div class="mt-auto">{{ link.title }}</div>
+                    <div><small>19 Nov 2020</small></div>
+                </div>
+            </a>
+        </figure>
+    </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { Heart, Pencil, TrashCan, Share, Cog } from "mdue";
+import { defineComponent } from "vue";
+import { Link } from "@/interfaces/Link";
 
 export default defineComponent({
-    name: "link",
+    name: "web-link",
     props: {
-        url: {
-            type: String,
-            required: true
-        },
-        name: {
-            type: String,
+        link: {
+            type: Object as () => Link,
             required: true
         }
     },
-    setup(props) {
-        // eslint-disable-next-line vue/no-setup-props-destructure
-        const url = props.url;
-        const domain = new URL(url).hostname;
-        const icon = `https://favicons.githubusercontent.com/${domain}`;
+    emits: ["click"],
+    components: {
+        Heart,
+        Pencil,
+        TrashCan,
+        Share,
+        Cog
+    },
+    setup(props, { emit }) {
+        const onClick = (event: Event) => {
+            emit("click", { event: event, link: props.link });
+        };
 
-        return { icon };
+        return { onClick };
     }
 });
 </script>
-
-<style scoped></style>

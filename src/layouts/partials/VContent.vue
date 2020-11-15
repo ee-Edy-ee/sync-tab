@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid text-center">
+    <div class="container-fluid text-center p-5">
         <slot />
     </div>
 </template>

@@ -29,4 +29,5 @@ export default defineComponent({
 <style lang="scss">
 @import "@/styles/global.scss";
 @import "@/styles/layout/general.scss";
+@import "@/styles/vue-components/link.scss";
 </style>

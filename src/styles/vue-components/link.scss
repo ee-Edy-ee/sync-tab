@@ -1,0 +1,204 @@
+.card-containers {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card-containers .web-link {
+    position: relative;
+}
+
+.settings-button {
+    top: 0.5em;
+    left: 0.5em;
+    z-index: 100;
+    padding: 0.5em;
+    position: absolute;
+    display: block;
+    border-radius: 0.5em;
+    line-height: 1em;
+}
+
+.card-containers .web-link .card-link {
+    display: block;
+    overflow: hidden;
+    height: 100%;
+    border-radius: 0.5em;
+    text-decoration: none;
+    position: relative;
+}
+
+.card-containers .card-container .card-link:after {
+    position: absolute;
+}
+
+.card-containers .card-container {
+    position: relative;
+}
+
+.card-containers .card-container {
+    margin: 20px;
+    height: 150px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    transform-origin: center top;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    transition: 0.3s;
+}
+
+.card-containers .card-container .overlay {
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    z-index: -1;
+    background-color: $dark;
+}
+
+.card-containers .card-container .figcaption {
+    background: none;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    widows: 100%;
+    text-align: left;
+    padding: 1em;
+    font-size: 0.8em;
+}
+
+.card-containers .card-container .card-link:after {
+    content: "";
+    z-index: 10;
+    width: 200%;
+    height: 100%;
+    top: -90%;
+    left: -20px;
+    opacity: 0;
+    transform: rotate(45deg);
+    background: linear-gradient(to top, transparent, #fff 15%, rgba(255, 255, 255, 0.5));
+    transition: 0.3s;
+}
+
+.card-containers .card-container:hover,
+.card-containers .card-container:focus,
+.card-containers .card-container:active {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px) scale(1.05) rotateX(15deg);
+}
+
+.card-containers .card-container:hover .figcaption,
+.card-containers .card-container:focus .figcaption,
+.card-containers .card-container:active .figcaption {
+    transform: none;
+}
+
+.card-containers .card-container:hover .card-link:after,
+.card-containers .card-container:focus .card-link:after,
+.card-containers .card-container:active .card-link:after {
+    transform: rotate(25deg);
+    top: -40%;
+    opacity: 0.03;
+}
+
+.web-link {
+    .multi-button {
+        font-size: 1.5em;
+        z-index: -1;
+        position: absolute;
+        top: 1.3rem;
+        left: 1.3rem;
+        border-radius: 100%;
+        width: 0rem;
+        height: 0rem;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
+        a {
+            padding: 0;
+            display: grid;
+            place-items: center;
+            position: absolute;
+            width: 1.4em;
+            height: 1.4em;
+            font-size: 0.8em;
+            border: none;
+            border-radius: 100%;
+            background: $info;
+            color: $light;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
+            box-shadow: 0 0 0rem -0.25rem $info;
+            &:hover {
+                background: $light;
+                color: $info;
+                box-shadow: 0 0 1rem -0.25rem $info;
+            }
+            &:first-child:nth-last-child(1),
+            &:first-child:nth-last-child(1) ~ * {
+                //If there is 1 child
+                &:nth-child(1) {
+                    left: 25%;
+                    top: 25%;
+                }
+            }
+            &:first-child:nth-last-child(2),
+            &:first-child:nth-last-child(2) ~ * {
+                //If there are 2 children
+                &:nth-child(1) {
+                    left: 37.5%;
+                    top: 18.75%;
+                }
+                &:nth-child(2) {
+                    left: 18.75%;
+                    top: 37.5%;
+                }
+            }
+            &:first-child:nth-last-child(3),
+            &:first-child:nth-last-child(3) ~ * {
+                //If there are 3 children
+                &:nth-child(1) {
+                    left: 50%;
+                    top: 15.625%;
+                }
+                &:nth-child(2) {
+                    left: 25%;
+                    top: 25%;
+                }
+                &:nth-child(3) {
+                    left: 15.625%;
+                    top: 50%;
+                }
+            }
+            &:first-child:nth-last-child(4), //If there are 4 children, if first child is also 4th item from bottom get self, and
+            &:first-child:nth-last-child(4) ~ * {
+                //If there are 4 children, if first child is also 4th item from bottom get siblings
+                &:nth-child(1) {
+                    left: 62.5%;
+                    top: 18.75%;
+                }
+                &:nth-child(2) {
+                    left: 37.5%;
+                    top: 18.75%;
+                }
+                &:nth-child(3) {
+                    left: 18.75%;
+                    top: 37.5%;
+                }
+                &:nth-child(4) {
+                    left: 18.75%;
+                    top: 62.5%;
+                }
+            }
+        }
+    }
+}
+
+.card-containers:not(.is-draggable) .web-link {
+    &.is-active .multi-button,
+    .multi-button:focus-within {
+        //Hover or a button inside is focused
+        width: 10rem;
+        height: 10rem;
+        opacity: 1;
+    }
+}
