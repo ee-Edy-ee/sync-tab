@@ -9,9 +9,6 @@
 </template>
 
 <style lang="scss">
-html {
-    overflow: hidden;
-}
 .bounce-enter-active {
     animation: bounce-in 0.5s ease-out both;
 }

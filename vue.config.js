@@ -4,9 +4,15 @@ const path = require("path");
 module.exports = {
     pwa: {
         name: "Sync-TAB",
+        themeColor: "#4DBA87",
+        msTileColor: "#000000",
+        appleMobileWebAppCapable: "yes",
+        appleMobileWebAppStatusBarStyle: "black",
+
+        // configure the workbox plugin
         workboxPluginMode: "InjectManifest",
         workboxOptions: {
-            swSrc: "src/service-worker.js"
+            swSrc: "src/service-worker.ts"
         }
     },
 

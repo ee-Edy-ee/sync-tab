@@ -7,7 +7,7 @@
                 <a v-ripple><trash-can /></a>
                 <a v-ripple><share /></a>
             </div>
-            <a href="#" v-ripple @click="event => onClick(event)" class="settings-button text-info"><cog /></a>
+            <a href="#" v-ripple @click="event => onClick(event)" @touch="event => onClick(event)" @enter="event => onClick(event)" class="settings-button text-info"><cog /></a>
             <a :href="link.url" v-ripple class="card-link text-dark">
                 <div class="overlay" :style="{ 'background-color': link.color }"></div>
                 <div class="figcaption">
