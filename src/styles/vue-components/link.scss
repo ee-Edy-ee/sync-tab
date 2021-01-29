@@ -81,14 +81,13 @@
 .card-containers .card-container:focus,
 .card-containers .card-container:active {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-    transform: translateY(-3px) scale(1.05) rotateX(15deg);
 }
 
-.card-containers .card-container:hover .figcaption,
-.card-containers .card-container:focus .figcaption,
-.card-containers .card-container:active .figcaption {
-    transform: none;
-}
+// .card-containers .card-container:hover .figcaption,
+// .card-containers .card-container:focus .figcaption,
+// .card-containers .card-container:active .figcaption {
+//     transform: none;
+// }
 
 .card-containers .card-container:hover .card-link:after,
 .card-containers .card-container:focus .card-link:after,

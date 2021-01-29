@@ -1,32 +1,39 @@
 <template>
     <div class="home">
         <div v-if="!loaded">Loading......</div>
-        <div class="container" v-else>
-            <draggable-container :class="{ 'card-containers': true, 'is-draggable': isDragging }" tag="div" :v-model="links" @start="onStart()" @end="onEnd($event)" v-bind="dragOptions">
-                <transition-group type="transition" :name="!isDragging ? 'flip-list' : null">
-                    <template v-for="link in links" :key="link.id">
-                        <web-link :link="new LinkClass(link.id, link.title, link.url, link.color, link.active)" @click="event => onClick(event)" />
-                    </template>
-                </transition-group>
-            </draggable-container>
-        </div>
+        <!-- <transition-group type="transition" :name="!isDragging ? 'flip-list' : null"></tran sition-group> -->
+        <!-- <web-link :link="new LinkClass(link.id, link.title, link.url, link.color, link.active)" @click="event => onClick(event)" /> -->
+        <DragDropContext class="container">
+            <Droppable :class="{ 'card-containers': false, 'is-draggable': isDragging }" tag="div" :v-model="links" @start="onStart()" @end="onEnd($event)" v-bind="dragOptions">
+                <template v-for="link in links" :key="link.id">
+                    <Draggable>
+                        <p>test 123 123</p>
+                    </Draggable>
+                </template>
+            </Droppable>
+        </DragDropContext>
+
+        <DragDropContext level="4">Test2</DragDropContext>
     </div>
 </template>
 
 <script lang="ts">
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import Link from "@/components/Link.vue";
-import { VueDraggableNext } from "vue-draggable-next";
+// import Link from "@/components/Link.vue";
 import { defineComponent, ref } from "vue";
 import { CustomEvent, LinkType, Link as LinkClass } from "@/interfaces/Link";
+import { DragDropContext, Droppable, Draggable } from "@/components/draggable";
+
 // import { linksCollection } from "@/util/firebase";
 
 export default defineComponent({
     name: "home",
     components: {
-        "web-link": Link,
-        "draggable-container": VueDraggableNext
+        // "web-link": Link,
+        DragDropContext,
+        Droppable,
+        Draggable
     },
 
     setup() {
@@ -34,16 +41,16 @@ export default defineComponent({
         const links = ref<LinkType[]>([
             { id: "11a3-1231-asd11", url: "https://sync-tab.local.dev/", title: "test1", active: false },
             { id: "41a3-1231-asd14", url: "https://sync-tab.local.dev/", title: "test4", active: false },
-            { id: "21a3-1231-asd12", url: "https://sync-tab.local.dev/", title: "test2", active: false },
-            { id: "31a3-1231-asd13", url: "https://sync-tab.local.dev/", title: "test3", active: false },
-            { id: "51a3-1231-asd15", url: "https://sync-tab.local.dev/", title: "test5", active: false },
-            { id: "61a3-1231-asd16", url: "https://sync-tab.local.dev/", title: "test6", active: false },
-            { id: "11a3-1231-asd112", url: "https://sync-tab.local.dev/", title: "test1", active: false },
-            { id: "41a3-1231-asd142", url: "https://sync-tab.local.dev/", title: "test4", active: false },
-            { id: "21a3-1231-asd122", url: "https://sync-tab.local.dev/", title: "test2", active: false },
-            { id: "31a3-1231-asd132", url: "https://sync-tab.local.dev/", title: "test3", active: false },
-            { id: "51a3-1231-asd152", url: "https://sync-tab.local.dev/", title: "test5", active: false },
-            { id: "61a3-1231-asd162", url: "https://sync-tab.local.dev/", title: "test6", active: false }
+            { id: "21a3-1231-asd12", url: "https://sync-tab.local.dev/", title: "test2", active: false }
+            // { id: "31a3-1231-asd13", url: "https://sync-tab.local.dev/", title: "test3", active: false },
+            // { id: "51a3-1231-asd15", url: "https://sync-tab.local.dev/", title: "test5", active: false },
+            // { id: "61a3-1231-asd16", url: "https://sync-tab.local.dev/", title: "test6", active: false },
+            // { id: "11a3-1231-asd112", url: "https://sync-tab.local.dev/", title: "test1", active: false },
+            // { id: "41a3-1231-asd142", url: "https://sync-tab.local.dev/", title: "test4", active: false },
+            // { id: "21a3-1231-asd122", url: "https://sync-tab.local.dev/", title: "test2", active: false },
+            // { id: "31a3-1231-asd132", url: "https://sync-tab.local.dev/", title: "test3", active: false },
+            // { id: "51a3-1231-asd152", url: "https://sync-tab.local.dev/", title: "test5", active: false },
+            // { id: "61a3-1231-asd162", url: "https://sync-tab.local.dev/", title: "test6", active: false }
         ]);
 
         const isDragging = ref(false);
@@ -98,23 +105,4 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
-.flip-list-move {
-    transition: transform 0.5s;
-}
-.no-move {
-    transition: transform 0s;
-}
-.ghost {
-    opacity: 0;
-}
-.list-group {
-    min-height: 20px;
-}
-.list-group-item {
-    cursor: move;
-}
-.list-group-item i {
-    cursor: pointer;
-}
-</style>
+<style lang="scss" scoped></style>
