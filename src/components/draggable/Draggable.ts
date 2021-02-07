@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { h, defineComponent, reactive } from "vue";
+import emitter from "@/helpers/EventHub";
 
 export default defineComponent({
     functional: true,
@@ -10,29 +11,24 @@ export default defineComponent({
             default: "div"
         }
     },
-
-    setup(props, { slots }) {
-        function handleEvent(event: Event) {
-            console.log(event.type);
-        }
-
+    setup(props, { emit, slots }) {
         return () =>
             h(
                 props.tag,
-
                 {
-                    onClick: (event: Event) => handleEvent(event),
-                    onKeyPress: (event: Event) => handleEvent(event),
-                    // onKeyDown: (event: Event) => handleEvent(event),
-                    // onKeyUp: (event: Event) => handleEvent(event),
-                    onMouseDown: (event: Event) => handleEvent(event),
-                    onMouseUp: (event: Event) => handleEvent(event),
-                    onMouseMovePassive: (event: Event) => handleEvent(event),
-                    onTouchStartPassive: (event: Event) => handleEvent(event),
-                    onTouchMovePassive: (event: Event) => handleEvent(event),
-                    onTouchEndPassive: (event: Event) => handleEvent(event)
-                },
+                    tabindex: 0, // make the element focusable
+                    // onKeyPress: (event: KeyboardEvent) => emitter.emit("handleKeyboardEvent", event),
+                    // onKeyDown: (event: KeyboardEvent) => emitter.emit("handleKeyboardEvent", event),
+                    // onKeyUp: (event: KeyboardEvent) => emitter.emit("handleKeyboardEvent", event),
 
+                    onMouseDownPassive: (event: MouseEvent) => emitter.emit("handleMouseEvent", event),
+                    onMouseUpPassive: (event: MouseEvent) => emitter.emit("handleMouseEvent", event),
+                    onMouseMovePassive: (event: MouseEvent) => emitter.emit("handleMouseEvent", event)
+
+                    // onTouchStartPassive: (event: Event) => emitter.emit("handleTouchEvent", event),
+                    // onTouchMovePassive: (event: Event) => emitter.emit("handleTouchEvent", event),
+                    // onTouchEndPassive: (event: TouchEvent) => emitter.emit("handleTouchEvent", event)
+                },
                 [slots.default?.()]
             );
     }

@@ -5,15 +5,11 @@
         <!-- <web-link :link="new LinkClass(link.id, link.title, link.url, link.color, link.active)" @click="event => onClick(event)" /> -->
         <DragDropContext class="container">
             <Droppable :class="{ 'card-containers': false, 'is-draggable': isDragging }" tag="div" :v-model="links" @start="onStart()" @end="onEnd($event)" v-bind="dragOptions">
-                <template v-for="link in links" :key="link.id">
-                    <Draggable>
-                        <p>test 123 123</p>
-                    </Draggable>
-                </template>
+                <Draggable v-for="link in links" :key="link.id">
+                    <div class="btn btn-primary m-2 p-2">{{ link.title }}</div>
+                </Draggable>
             </Droppable>
         </DragDropContext>
-
-        <DragDropContext level="4">Test2</DragDropContext>
     </div>
 </template>
 
