@@ -1,5 +1,5 @@
 <template>
-    <component :is="this.$route.meta.layout || 'div'">
+    <component :is="this.$route.meta.meta || 'div'">
         <router-view v-slot="slotProps">
             <transition name="bounce" mode="out-in">
                 <component :is="slotProps.Component"></component>

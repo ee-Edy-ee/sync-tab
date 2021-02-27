@@ -9,6 +9,8 @@
                     <div class="btn btn-primary m-2 p-2">{{ link.title }}</div>
                 </Draggable>
             </Droppable>
+
+            <Droppable :class="{ 'card-containers': false, 'is-draggable': isDragging }" tag="div" style="height: 300px"></Droppable>
         </DragDropContext>
     </div>
 </template>

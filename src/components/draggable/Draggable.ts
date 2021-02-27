@@ -21,9 +21,8 @@ export default defineComponent({
                     // onKeyDown: (event: KeyboardEvent) => emitter.emit("handleKeyboardEvent", event),
                     // onKeyUp: (event: KeyboardEvent) => emitter.emit("handleKeyboardEvent", event),
 
-                    onMouseDownPassive: (event: MouseEvent) => emitter.emit("handleMouseEvent", event),
-                    onMouseUpPassive: (event: MouseEvent) => emitter.emit("handleMouseEvent", event),
-                    onMouseMovePassive: (event: MouseEvent) => emitter.emit("handleMouseEvent", event)
+                    onMouseDownPassive: (event: MouseEvent) => emitter.emit("handleMouseEvent", event)
+                    // onMouseUpPassive: (event: MouseEvent) => emitter.emit("handleMouseEvent", event)
 
                     // onTouchStartPassive: (event: Event) => emitter.emit("handleTouchEvent", event),
                     // onTouchMovePassive: (event: Event) => emitter.emit("handleTouchEvent", event),
